@@ -8,13 +8,7 @@ public class Solution {
         int cumulatedDistance = 0;
         pack.sortRightIds().sortLeftIds();
         for (int i = 0; i < pack.leftIds().size(); i++) {
-            int leftId = pack.leftIds().get(i);
-            int rightId = pack.rightIds().get(i);
-            if (leftId > rightId) {
-                cumulatedDistance += leftId - rightId;
-            } else if (leftId < rightId) {
-                cumulatedDistance += rightId - leftId;
-            }
+            cumulatedDistance += Math.abs(pack.leftIds().get(i) - pack.rightIds().get(i));
         }
         return cumulatedDistance;
     }
