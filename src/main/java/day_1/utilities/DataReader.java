@@ -10,8 +10,7 @@ public class DataReader {
 
     public IdPack getIdPack(){
         ArrayList<String> lines = Utility.getLines("src/main/java/day_1/input/input.txt");
-        ArrayList<Integer> leftIds = new ArrayList<>();
-        ArrayList<Integer> rightIds = new ArrayList<>();
+        ArrayList<Integer> leftIds = new ArrayList<>(), rightIds = new ArrayList<>();
         Pattern pattern = Pattern.compile("([10-99]+)\\s+([10-99]+)");
         for (String line:lines){
             Matcher matcher = pattern.matcher(line);
@@ -21,6 +20,5 @@ public class DataReader {
             }
         }
         return new IdPack(leftIds,rightIds);
-
     }
 }
