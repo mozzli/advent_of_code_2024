@@ -2,7 +2,7 @@ package day_1;
 
 import day_1.utilities.IdPack;
 
-public class Solution {
+class Solution {
 
     public int getCumulatedDistance(IdPack pack) {
         int cumulatedDistance = 0;
