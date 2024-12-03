@@ -13,10 +13,13 @@ public class Report {
     private final ArrayList<Integer> numbers;
     @Getter
     private ReportStatus isSafe;
+    @Getter
+    private ReportStatus isSafeTolerant;
 
     public Report(ArrayList<Integer> numbers) {
         this.numbers = numbers;
-        isSafe = checkIsSafeWithErrorTolerance();
+        isSafe = checkIsSafe(numbers);
+        isSafeTolerant = checkIsSafeWithErrorTolerance();
     }
 
     private ReportStatus checkIsSafe(ArrayList<Integer> numbers) {

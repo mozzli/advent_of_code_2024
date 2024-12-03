@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class DataReader {
 
     public ArrayList<Report> getReportList(){
-        ArrayList<String> lines = Utility.getLines("src/main/java/day_2/input/sampleInput.txt");
+        ArrayList<String> lines = Utility.getLines("src/main/java/day_2/input/input.txt");
         ArrayList<Report> reports = new ArrayList<>();
         Pattern pattern = Pattern.compile("[0-99]+");
         for (String line: lines){
