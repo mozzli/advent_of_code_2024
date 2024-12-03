@@ -1,7 +1,6 @@
 package day_2;
 
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 class Solution {
 
