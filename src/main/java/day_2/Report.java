@@ -32,24 +32,23 @@ public class Report {
     }
 
     private ReportStatus checkIsSafeWithErrorTolerance() {
-        ReportLevels level = null;
-        ArrayList<Integer> slicedList = new ArrayList<>(numbers);
-        for (int i = 0; i < numbers.size() - 1; i++) {
-            int subtractScore = numbers.get(i) - numbers.get(i + 1);
-            if (level == null) level = getReportLevel(subtractScore);
-            if (Math.abs(subtractScore) > 3 || level == SAME || getReportLevel(subtractScore) != level) {
-                slicedList.remove(i);
-                return checkIsSafe(slicedList);
+        if (checkIsSafe(numbers) == NOT_SAFE) {
+            for (int i = 0; i < numbers.size(); i++) {
+                ArrayList<Integer> slicedArray = new ArrayList<>(numbers);
+                slicedArray.remove(i);
+                if (checkIsSafe(slicedArray) == NOT_SAFE) {
+                    if (i == numbers.size() - 1) {
+                        return NOT_SAFE;
+                    }
+                } else return SAFE;
             }
         }
         return SAFE;
     }
 
-    private ReportLevels getReportLevel(int i){
+    private ReportLevels getReportLevel(int i) {
         if (i < 0) return INCREASING;
         else if (i > 0) return DECREASING;
         else return SAME;
     }
-
-
 }
