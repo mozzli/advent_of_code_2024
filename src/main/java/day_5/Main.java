@@ -4,7 +4,9 @@ import day_5.utilities.DataReader;
 
 public class Main {
     public static void main(String[] args){
-        System.out.println(new DataReader().getRulebook());
-        System.out.println(new DataReader().getNumberList());
+        System.out.println("Correctly ordered updates: " + new Solution(new DataReader().getRulebook())
+                .getCentralSum(new DataReader().getNumberList(), true));
+        System.out.println("Incorrectly ordered updates: " + new Solution(new DataReader().getRulebook())
+                .getCentralSum(new DataReader().getNumberList(), false));
     }
 }

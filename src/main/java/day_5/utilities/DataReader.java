@@ -13,8 +13,7 @@ import static java.lang.Integer.parseInt;
 
 public class DataReader {
 
-    private final ArrayList<String> lines = Utility.getLines("src/main/java/day_5/input/sampleInput.txt");
-
+    private final ArrayList<String> lines = Utility.getLines("src/main/java/day_5/input/input.txt");
 
     public HashMap<Integer, ArrayList<Integer>> getRulebook() {
         Pattern pattern = Pattern.compile("(\\d+)\\|(\\d+)");
@@ -22,11 +21,10 @@ public class DataReader {
         for (String line : lines) {
             Matcher matcher =pattern.matcher(line);
             while (matcher.find()){
-                if (!rulebook.containsKey(parseInt(matcher.group(1)))) rulebook.put(parseInt(matcher.group(1)), new ArrayList<>(List.of(parseInt(matcher.group(2)))));
-                else rulebook.get(parseInt(matcher.group(1))).add(parseInt(matcher.group(2)));
+                if (!rulebook.containsKey(parseInt(matcher.group(2)))) rulebook.put(parseInt(matcher.group(2)), new ArrayList<>(List.of(parseInt(matcher.group(1)))));
+                else rulebook.get(parseInt(matcher.group(2))).add(parseInt(matcher.group(1)));
             }
         }
-        System.out.println(rulebook);
         return rulebook;
     }
 
@@ -48,6 +46,5 @@ public class DataReader {
             }
         }
         return numbersList;
-
     }
 }
