@@ -46,8 +46,7 @@ public class Solution {
     }
 
     private long lookForXmas(HashMap<Point, String> map, Point point) {
-        if (!map.get(point).equals("X")) return 0;
-        return Arrays.stream(Directions.values()).filter(dir -> findNextLetter(dir, map, point, new StringBuilder(map.get(point)))).count();
+        return (!map.get(point).equals("X")) ? 0 : Arrays.stream(Directions.values()).filter(dir -> findNextLetter(dir, map, point, new StringBuilder(map.get(point)))).count();
     }
 
     private enum Directions {
