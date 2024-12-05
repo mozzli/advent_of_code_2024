@@ -20,7 +20,7 @@ public class Utility {
     public static String getStringFromText(String textSource){
         String line;
         StringBuilder fullText = new StringBuilder();
-        BufferedReader text = new BufferedReader(new FileReader("src/main/java/day_3/input/input.txt"));
+        BufferedReader text = new BufferedReader(new FileReader(textSource));
         while ((line = text.readLine()) != null) fullText.append(line);
         return fullText.toString();
     }
